@@ -109,21 +109,15 @@ Internet-Speed-Finder/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
 ### Troubleshooting
 
 - **Error: `ModuleNotFoundError: No module named 'flask'`**: Ensure your virtual environment is activated and Flask is installed by running `pip install -r requirements.txt`.
 - **Static Files Not Loading**: Verify that the static file paths in HTML are correct and that `logo.png` is in the `static/images` directory.
 - **Slow Test Results**: Network conditions can affect speed tests; try testing at different times for more accurate results.
 
----
-
 ### Contribution
 
 Feel free to submit pull requests or open issues if you find any bugs or have suggestions for new features.
-
----
 
 ## Contact
 
