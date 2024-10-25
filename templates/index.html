@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Speed Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .speed-container {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 350px;
+            transition: transform 0.3s;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            color: #0072ff;
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        .retry-button {
+            background-color: #ff4d4d;
+            color: #fff;
+        }
+        .retry-button:hover {
+            background-color: #e63939;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.5s;
+        }
+        .fa-spinner {
+            font-size: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .speed-value {
+            font-size: 1.5em;
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        .speed-value span {
+            font-weight: bold;
+        }
+        .testing {
+            display: inline-block;
+            animation: blink 1s linear infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="speed-container">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo">
+        <h1>Internet Speed Test</h1>
+        
+        <!-- Buttons Container -->
+        <div class="button-container">
+            <button id="start-button" onclick="checkSpeed()">Start Test</button>
+            <button id="retry-button" class="retry-button" onclick="retryTest()" style="display: none;">Retry</button>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="result">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p class="speed-value" id="download-speed">Download Speed: <span>--</span> Mbps</p>
+            <p class="speed-value" id="upload-speed">Upload Speed: <span>--</span> Mbps</p>
+            <p class="speed-value" id="ping">Ping: <span>--</span> ms</p>
+        </div>
+    </div>
+    
+    <script>
+        async function checkSpeed() {
+            // Hide the Start button and show the Retry button after first click
+            document.getElementById('start-button').style.display = 'none';
+            document.getElementById('retry-button').style.display = 'inline-block';
+
+            document.querySelector('.result').style.display = 'block';
+            document.getElementById('download-speed').innerHTML = "Download Speed: <span class='testing'>Testing...</span>";
+            document.getElementById('upload-speed').innerHTML = "Upload Speed: <span class='testing'>Testing...</span>";
+            document.getElementById('ping').innerHTML = "Ping: <span class='testing'>Testing...</span>";
+
+            const spinner = document.querySelector('.fa-spinner');
+            spinner.style.display = 'inline-block';
+
+            const response = await fetch('/speedtest');
+            const data = await response.json();
+
+            spinner.style.display = 'none';
+
+            document.getElementById('download-speed').innerHTML = `Download Speed: <span>${data.download}</span> Mbps`;
+            document.getElementById('upload-speed').innerHTML = `Upload Speed: <span>${data.upload}</span> Mbps`;
+            document.getElementById('ping').innerHTML = `Ping: <span>${data.ping}</span> ms`;
+        }
+
+        function retryTest() {
+            checkSpeed();
+        }
+    </script>
+</body>
+</html>
