@@ -1,6 +1,3 @@
-Here's the updated `README.md` including the new **Contact** section with the revised email content tailored for your Internet Speed Finder project:
-
-```markdown
 # Internet Speed Finder
 
 This repository hosts a Flask-based Internet Speed Finder application that provides a simple user interface to test download speed, upload speed, and ping. The application is responsive, has loading animations, and allows users to retry the test without refreshing the page.
