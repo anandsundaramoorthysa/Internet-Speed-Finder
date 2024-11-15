@@ -31,7 +31,7 @@ Make sure the following are installed:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/a1n13a1n13d4/Internet-Speed-Finder.git
+   git clone https://github.com/anandsundaramoorthysa/Internet-Speed-Finder.git
    ```
 
 2. **Navigate to Project Directory**
