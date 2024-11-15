@@ -45,7 +45,7 @@ Make sure the following are installed:
    This step is recommended to isolate project dependencies.
 
    ```bash
-   python3 -m venv venv  # On Windows, use `python -m venv venv`
+   python -m venv venv  # On Windows, use `python -m venv venv`
    ```
 
 4. **Activate the Virtual Environment**
