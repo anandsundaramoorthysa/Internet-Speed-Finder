@@ -2,14 +2,21 @@
 
 This repository hosts a Flask-based Internet Speed Finder application that provides a simple user interface to test download speed, upload speed, and ping. The application is responsive, has loading animations, and allows users to retry the test without refreshing the page.
 
-## Features
+## Table of Contents
 
-- **Responsive Design**: Adaptable layout for various devices.
-- **Test Speeds**: Measures download speed, upload speed, and ping.
-- **Retry Option**: Allows users to rerun the test after results display.
-- **Loading Animation**: Displays spinner and animations during the speed test.
+- [About Project](#about-project)
+- [Installation](#installation)
+- [Use/Run the Project](#userun-the-project)
+- [Features](#features)
+- [Contribution](#contribution)
+- [License](#license)
+- [Contact Me](#contact-me)
 
-## Environment Setup
+## About Project
+
+The Internet Speed Finder is a Flask web application that helps users measure their internet speed, including download speed, upload speed, and ping. It uses the `speedtest-cli` Python library to run the speed tests and displays results on a user-friendly web interface.
+
+## Installation
 
 ### Prerequisites
 
@@ -73,7 +80,7 @@ Make sure the following are installed:
 
    After running this command, you can access the application by navigating to `http://127.0.0.1:5000` in your web browser.
 
-## Usage
+## Use/Run the Project
 
 1. **Start the Test**: Click on "Start Test" to begin measuring download speed, upload speed, and ping.
 2. **Retry the Test**: After the first results appear, use the "Retry" button to rerun the test.
@@ -83,44 +90,24 @@ Make sure the following are installed:
 
 Ensure your application has a `/speedtest` endpoint or equivalent to simulate or fetch speed data. You may use mock data if real-time testing APIs aren’t available.
 
-## Project Structure
+## Features
 
-```plaintext
-Internet-Speed-Finder/
-├── static/
-│   ├── css/
-│   │   └── style.css           # CSS for project styling
-│   └── images/
-│       └── logo.png            # Logo displayed on the application
-├── templates/
-│   └── index.html              # Main HTML template for the application
-├── app.py                      # Main Flask application file
-└── README.md                   # Project README with setup instructions
-```
+- **Responsive Design**: Adaptable layout for various devices.
+- **Test Speeds**: Measures download speed, upload speed, and ping.
+- **Retry Option**: Allows users to rerun the test after results display.
+- **Loading Animation**: Displays spinner and animations during the speed test.
 
-## Technologies Used
+## Contribution
 
-- **HTML5**: For structuring the web page.
-- **CSS3**: For styling, including animations and responsiveness.
-- **JavaScript**: Adds interactivity and handles front-end logic.
-- **Flask**: A lightweight web framework to serve the application.
+Feel free to submit pull requests or open issues if you find any bugs or have suggestions for new features.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-### Troubleshooting
-
-- **Static Files Not Loading**: Verify that the static file paths in HTML are correct and that `logo.png` is in the `static/images` directory.
-- **Slow Test Results**: Network conditions can affect speed tests; try testing at different times for more accurate results.
-
-### Contribution
-
-Feel free to submit pull requests or open issues if you find any bugs or have suggestions for new features.
-
-## Contact
+## Contact Me
 
 If you have any questions or would like to collaborate, feel free to reach out:
 
 - **Email**: [sanand03072005@gmail.com](mailto:sanand03072005@gmail.com?subject=Inquiry%20About%20Internet%20Speed%20Finder%20Project&body=Hi%20Anand,%0A%0AI'm%20interested%20in%20learning%20more%20about%20the%20Internet%20Speed%20Finder%20project%20you%20developed.%20I%20have%20some%20questions%20and%20would%20like%20to%20discuss%20potential%20collaborations.%0A%0AThank%20you!%0A%0ABest%20regards,%0A[Your%20Name])
-- **LinkedIn**: [Anand's LinkedIn Profile](https://www.linkedin.com/in/anands37/)
+- **LinkedIn**: [Anand's LinkedIn Profile](https://www.linkedin.com/in/anandsundaramoorthysa/)
